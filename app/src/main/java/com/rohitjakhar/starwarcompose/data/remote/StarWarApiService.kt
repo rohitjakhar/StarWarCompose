@@ -4,7 +4,7 @@ import com.rohitjakhar.starwarcompose.data.model.FilmsResponseDto
 import com.rohitjakhar.starwarcompose.data.model.PeoplesResponseDto
 import com.rohitjakhar.starwarcompose.data.model.PlanetsResponseDto
 import com.rohitjakhar.starwarcompose.data.model.SpeciesResponseDto
-import com.rohitjakhar.starwarcompose.data.model.StartShipResponseDto
+import com.rohitjakhar.starwarcompose.data.model.StarShipResponseDto
 import com.rohitjakhar.starwarcompose.data.model.VehiclesResponseDto
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -23,7 +23,7 @@ interface StarWarApiService {
     suspend fun getAllSpecies(): Response<SpeciesResponseDto>
 
     @GET("starships/")
-    suspend fun getAllStartShip(): Response<StartShipResponseDto>
+    suspend fun getAllStarShip(): Response<StarShipResponseDto>
 
     @GET("vehicles/")
     suspend fun getAllVehicle(): Response<VehiclesResponseDto>

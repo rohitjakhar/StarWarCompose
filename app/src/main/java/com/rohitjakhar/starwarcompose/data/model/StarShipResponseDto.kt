@@ -3,7 +3,7 @@ package com.rohitjakhar.starwarcompose.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class StartShipResponseDto(
+data class StarShipResponseDto(
     @SerializedName("count")
     val count: Int,
     @SerializedName("next")
@@ -11,9 +11,9 @@ data class StartShipResponseDto(
     @SerializedName("previous")
     val previous: Any,
     @SerializedName("results")
-    val startShips: List<StartShip>
+    val startShips: List<StarShip>
 ) {
-    data class StartShip(
+    data class StarShip(
         @SerializedName("cargo_capacity")
         val cargoCapacity: String,
         @SerializedName("consumables")

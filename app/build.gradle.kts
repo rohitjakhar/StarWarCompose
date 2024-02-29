@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("com.google.devtools.ksp") version ("1.9.22-1.0.17")
 }
 
 android {
@@ -63,6 +64,10 @@ dependencies {
     // networking
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // navigation
+    implementation ("io.github.raamcosta.compose-destinations:core:1.9.63")
+    ksp ("io.github.raamcosta.compose-destinations:ksp:1.9.63")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")

@@ -1,7 +1,6 @@
 package com.rohitjakhar.starwarcompose.data.remote
 
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Before
@@ -58,7 +57,7 @@ class StartWarApiServiceTest {
 
     @Test
     fun `test api for all StartShip`() = runTest {
-        val response = apiService.getAllStartShip()
+        val response = apiService.getAllStarShip()
         assertNotNull(response)
         assertEquals(200, response.code())
     }
