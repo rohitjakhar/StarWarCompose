@@ -6,6 +6,7 @@ import com.rohitjakhar.starwarcompose.data.model.PlanetsResponseDto
 import com.rohitjakhar.starwarcompose.data.model.SpeciesResponseDto
 import com.rohitjakhar.starwarcompose.data.model.StarShipResponseDto
 import com.rohitjakhar.starwarcompose.data.model.VehiclesResponseDto
+import kotlinx.coroutines.sync.Mutex
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -32,15 +33,22 @@ interface StarWarApiService {
     suspend fun getAllFilms(): Response<FilmsResponseDto>
 
 
-
     companion object {
         private const val BASE_URL = "https://swapi.dev/api/"
 
-        fun getClient() =
-            Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(StarWarApiService::class.java)
+        private var INSTANCE: StarWarApiService? = null
+        private val mutex = Mutex()
+
+
+        fun getClient(): StarWarApiService {
+            return INSTANCE ?: run {
+                Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                    .create(StarWarApiService::class.java)
+                    .also { INSTANCE = it }
+            }
+        }
     }
 }

@@ -61,4 +61,5 @@ class StartWarApiServiceTest {
         assertNotNull(response)
         assertEquals(200, response.code())
     }
+
 }
